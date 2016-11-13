@@ -6,21 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://www.upchen.cn">
-  <title>Hello World | 陈浩远的个人博客</title>
+  <title>使用transmission在Linux服务器上下载torrent | 陈浩远的个人博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+  <meta name="description" content="因为最近打算入坑PT，想到还有腾讯云1元的云主机，可以用来做上传，所以快毕业最后再薅腾讯的一点羊毛
+这篇文章主要介绍transmission-cli和transmission-daemon,GUI不在介绍范围
+transmission-cli安装1yum install transmission-cli
+使用CentOS自带的包管理安装，ubuntu使用apt-get也可以安装
+具体可以参考官方下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://www.upchen.cn/2016/11/13/hello-world/index.html">
+<meta property="og:title" content="使用transmission在Linux服务器上下载torrent">
+<meta property="og:url" content="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/index.html">
 <meta property="og:site_name" content="陈浩远的个人博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
-<meta property="og:updated_time" content="2016-11-12T18:33:23.995Z">
+<meta property="og:description" content="因为最近打算入坑PT，想到还有腾讯云1元的云主机，可以用来做上传，所以快毕业最后再薅腾讯的一点羊毛
+这篇文章主要介绍transmission-cli和transmission-daemon,GUI不在介绍范围
+transmission-cli安装1yum install transmission-cli
+使用CentOS自带的包管理安装，ubuntu使用apt-get也可以安装
+具体可以参考官方下">
+<meta property="og:image" content="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/1.png">
+<meta property="og:image" content="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/2.png">
+<meta property="og:image" content="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/3.png">
+<meta property="og:image" content="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/4.png">
+<meta property="og:updated_time" content="2016-11-13T19:17:33.260Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick">
+<meta name="twitter:title" content="使用transmission在Linux服务器上下载torrent">
+<meta name="twitter:description" content="因为最近打算入坑PT，想到还有腾讯云1元的云主机，可以用来做上传，所以快毕业最后再薅腾讯的一点羊毛
+这篇文章主要介绍transmission-cli和transmission-daemon,GUI不在介绍范围
+transmission-cli安装1yum install transmission-cli
+使用CentOS自带的包管理安装，ubuntu使用apt-get也可以安装
+具体可以参考官方下">
+<meta name="twitter:image" content="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/1.png">
   
     <link rel="alternative" href="/atom.xml" title="陈浩远的个人博客" type="application/atom+xml">
   
@@ -149,7 +163,7 @@ Quick">
 </nav>
 
       <div class="body-wrap">
-        <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-使用transmission在Linux服务器上下载torrent" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <input type="hidden" class="isFancy" />
@@ -159,7 +173,7 @@ Quick">
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      使用transmission在Linux服务器上下载torrent
     </h1>
   
 
@@ -167,25 +181,54 @@ Quick">
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+        <p>因为最近打算入坑PT，想到还有腾讯云1元的云主机，可以用来做上传，所以快毕业最后再薅腾讯的一点羊毛</p>
+<p>这篇文章主要介绍transmission-cli和transmission-daemon,GUI不在介绍范围</p>
+<h2 id="transmission-cli"><a href="#transmission-cli" class="headerlink" title="transmission-cli"></a>transmission-cli</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install transmission-cli</div></pre></td></tr></table></figure>
+<p>使用CentOS自带的包管理安装，ubuntu使用apt-get也可以安装</p>
+<p>具体可以参考<a href="https://transmissionbt.com/download/" target="_blank" rel="external">官方下载地址</a></p>
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/1.png" alt="transmission" title="transmission"><br></div>
+
+<p>这条命令只会安装transmission-cli.x86_64</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/2.png" alt="transmission" title="transmission"><br></div>
+
+<p>最简单的使用方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transmission-cli name.torrent</div></pre></td></tr></table></figure>
+<p>会自动下载到~/Downloads下面，下载完成会自动做种，希望停止的话直接kill掉就好了</p>
+<h2 id="transmission-daemon"><a href="#transmission-daemon" class="headerlink" title="transmission-daemon"></a>transmission-daemon</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>transmission-daemon是个守护进程，它本身不提供下载的功能，但它可以提供一个对外的web接口，通过它可以RPC启动transmission-common去下载</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install transmission-daemon</div></pre></td></tr></table></figure>
+<p>同上，common包会被自动安装</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service transmission-daemon start</div></pre></td></tr></table></figure>
+<p>启动后会开放9091端口为web端口，可以浏览器直接访问来进行控制下载</p>
+<p>值得一说的是CentOS 7之后会逐渐弃用service而改用systemctl，所以会有一个下面重定向的提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Redirecting to /bin/systemctl start  transmission-daemon.service</div></pre></td></tr></table></figure>
+<p>配置文件在 /var/lib/transmission/.config/transmission-daemon/settings.json </p>
+<p>外网访问需要配置settings.json，否则将返回拒绝访问。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">"rpc-authentication-required": true, //开启需要密码登陆</div><div class="line">"rpc-bind-address": "0.0.0.0",</div><div class="line">"rpc-enabled": true,</div><div class="line">"rpc-password": "xxxxxx", //登陆密码，设置后重启transmission-daemon，密码会自动进行md5加密</div><div class="line">"rpc-port": 9091,</div><div class="line">"rpc-url": "/transmission/",</div><div class="line">"rpc-username": "chenhaoyuan@live.cn", //登陆用户名</div><div class="line">"rpc-whitelist": "127.0.0.1",  </div><div class="line">"rpc-whitelist-enabled": false, //关闭白名单</div></pre></td></tr></table></figure>
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/3.png" alt="transmission" title="transmission"><br></div>
+
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/4.png" alt="transmission" title="transmission"><br></div>
+
+<p>支持本地上传torrent</p>
 
       
     </div>
     <div class="article-info article-info-index">
       
-      <a href="/2016/11/13/hello-world/" class="archive-article-date">
-  	<time datetime="2016-11-12T18:33:23.994Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-13</time>
+      <a href="/2016/11/14/使用transmission在Linux服务器上下载torrent/" class="archive-article-date">
+  	<time datetime="2016-11-13T18:29:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
 </a>
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux工具/">Linux工具</a></li></ul>
+	</div>
+
       
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
 
       <div class="clearfix"></div>
     </div>
@@ -195,15 +238,11 @@ Quick">
   
 <nav id="article-nav">
   
-    <a href="/2016/11/14/日记/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          日记
-        
-      </div>
-    </a>
   
+    <a href="/2016/11/14/日记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">日记</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -235,7 +274,7 @@ Quick">
 
 <div class="duoshuo">
 	<!-- 多说评论框 start -->
-	<div class="ds-thread" data-thread-key="hello-world" data-title="Hello World" data-url="http://www.upchen.cn/2016/11/13/hello-world/"></div>
+	<div class="ds-thread" data-thread-key="使用transmission在Linux服务器上下载torrent" data-title="使用transmission在Linux服务器上下载torrent" data-url="http://www.upchen.cn/2016/11/14/使用transmission在Linux服务器上下载torrent/"></div>
 	<!-- 多说评论框 end -->
 	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
 	<script type="text/javascript">

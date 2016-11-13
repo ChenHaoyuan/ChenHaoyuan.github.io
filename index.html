@@ -144,6 +144,88 @@
       <div class="body-wrap">
         
   
+    <article id="post-使用transmission在Linux服务器上下载torrent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/使用transmission在Linux服务器上下载torrent/">使用transmission在Linux服务器上下载torrent</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为最近打算入坑PT，想到还有腾讯云1元的云主机，可以用来做上传，所以快毕业最后再薅腾讯的一点羊毛</p>
+<p>这篇文章主要介绍transmission-cli和transmission-daemon,GUI不在介绍范围</p>
+<h2 id="transmission-cli"><a href="#transmission-cli" class="headerlink" title="transmission-cli"></a>transmission-cli</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install transmission-cli</div></pre></td></tr></table></figure>
+<p>使用CentOS自带的包管理安装，ubuntu使用apt-get也可以安装</p>
+<p>具体可以参考<a href="https://transmissionbt.com/download/" target="_blank" rel="external">官方下载地址</a></p>
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/1.png" alt="transmission" title="transmission"><br></div>
+
+<p>这条命令只会安装transmission-cli.x86_64</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/2.png" alt="transmission" title="transmission"><br></div>
+
+<p>最简单的使用方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transmission-cli name.torrent</div></pre></td></tr></table></figure>
+<p>会自动下载到~/Downloads下面，下载完成会自动做种，希望停止的话直接kill掉就好了</p>
+<h2 id="transmission-daemon"><a href="#transmission-daemon" class="headerlink" title="transmission-daemon"></a>transmission-daemon</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>transmission-daemon是个守护进程，它本身不提供下载的功能，但它可以提供一个对外的web接口，通过它可以RPC启动transmission-common去下载</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install transmission-daemon</div></pre></td></tr></table></figure>
+<p>同上，common包会被自动安装</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service transmission-daemon start</div></pre></td></tr></table></figure>
+<p>启动后会开放9091端口为web端口，可以浏览器直接访问来进行控制下载</p>
+<p>值得一说的是CentOS 7之后会逐渐弃用service而改用systemctl，所以会有一个下面重定向的提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Redirecting to /bin/systemctl start  transmission-daemon.service</div></pre></td></tr></table></figure>
+<p>配置文件在 /var/lib/transmission/.config/transmission-daemon/settings.json </p>
+<p>外网访问需要配置settings.json，否则将返回拒绝访问。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">"rpc-authentication-required": true, //开启需要密码登陆</div><div class="line">"rpc-bind-address": "0.0.0.0",</div><div class="line">"rpc-enabled": true,</div><div class="line">"rpc-password": "xxxxxx", //登陆密码，设置后重启transmission-daemon，密码会自动进行md5加密</div><div class="line">"rpc-port": 9091,</div><div class="line">"rpc-url": "/transmission/",</div><div class="line">"rpc-username": "chenhaoyuan@live.cn", //登陆用户名</div><div class="line">"rpc-whitelist": "127.0.0.1",  </div><div class="line">"rpc-whitelist-enabled": false, //关闭白名单</div></pre></td></tr></table></figure>
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/3.png" alt="transmission" title="transmission"><br></div>
+
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/4.png" alt="transmission" title="transmission"><br></div>
+
+<p>支持本地上传torrent</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/14/使用transmission在Linux服务器上下载torrent/" class="archive-article-date">
+  	<time datetime="2016-11-13T18:29:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux工具/">Linux工具</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
     <article id="post-日记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -184,57 +266,6 @@
 	<a class="article-category-link" href="/categories/日记/">日记</a>
 	</div>
 
-
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-
-
-  
-    <article id="post-人月神话-第一章" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/11/14/人月神话-第一章/">人月神话:第一章</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <div style="width: 128px; height: 180px"><br>  <img src="/2016/11/14/人月神话-第一章/59942497_p0.jpg" alt="testImage" title="testImage"><br></div>
-
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      <a href="/2016/11/14/人月神话-第一章/" class="archive-article-date">
-  	<time datetime="2016-11-13T16:51:08.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
-</a>
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/人月神话/">人月神话</a></li></ul>
-	</div>
-
-      
 
       <div class="clearfix"></div>
     </div>
@@ -363,7 +394,7 @@
     
     	<section class="tools-section tools-section-tag">
     			<div class="widget tagcloud" id="js-tagcloud">
-    				<a href="/tags/人月神话/" style="font-size: 10px;">人月神话</a>
+    				<a href="/tags/Linux工具/" style="font-size: 10px;">Linux工具</a>
     			</div>
     	</section>
     
