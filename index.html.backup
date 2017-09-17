@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://www.upchen.cn">
+  <title>陈浩远的个人博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="陈浩远的个人博客">
+<meta property="og:url" content="http://www.upchen.cn/index.html">
+<meta property="og:site_name" content="陈浩远的个人博客">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="陈浩远的个人博客">
+  
+    <link rel="alternative" href="/atom.xml" title="陈浩远的个人博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img src="http://q1.qlogo.cn/g?b=qq&amp;nk=827167063&amp;s=0" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">陈浩远</a></h1>
+		</hgroup>
+
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/日记/">日记</a></li>
+	        
+				<li><a href="/categories/编程/">编程</a></li>
+	        
+				<li><a href="/categories/学习/">学习</a></li>
+	        
+				<li><a href="/categories/二次元/">二次元</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a class="js-smart-menu" data-idx="0" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="1" href="javascript:void(0)">标签</a>
+    			
+    			
+            
+    			
+            
+    			
+    			<a class="js-smart-menu" data-idx="2" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/ChenHaoyuan" title="github">github</a>
+		        
+					<a class="weibo" target="_blank" href="http://weibo.com/chenbigbig" title="weibo">weibo</a>
+		        
+					<a class="mail" target="_blank" href="mailto:chenhaoyuan@live.cn" title="mail">mail</a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-list"></i></div>
+  		<h1 class="header-author js-mobile-header hide">陈浩远</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				
+					<img src="http://q1.qlogo.cn/g?b=qq&amp;nk=827167063&amp;s=0" class="js-avatar">
+				
+			</div>
+			<hgroup>
+			  <h1 class="header-author">陈浩远</h1>
+			</hgroup>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/日记/">日记</a></li>
+		        
+					<li><a href="/categories/编程/">编程</a></li>
+		        
+					<li><a href="/categories/学习/">学习</a></li>
+		        
+					<li><a href="/categories/二次元/">二次元</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/ChenHaoyuan" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="http://weibo.com/chenbigbig" title="weibo">weibo</a>
+			        
+						<a class="mail" target="_blank" href="mailto:chenhaoyuan@live.cn" title="mail">mail</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap">
+        
+  
+    <article id="post-使用transmission在Linux服务器上下载torrent" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/使用transmission在Linux服务器上下载torrent/">使用transmission在Linux服务器上下载torrent</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>因为最近打算入坑PT，想到还有腾讯云1元的云主机，可以用来做上传，所以快毕业最后再薅腾讯的一点羊毛</p>
+<p>这篇文章主要介绍transmission-cli和transmission-daemon,GUI不在介绍范围</p>
+<h2 id="transmission-cli"><a href="#transmission-cli" class="headerlink" title="transmission-cli"></a>transmission-cli</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install transmission-cli</div></pre></td></tr></table></figure>
+<p>使用CentOS自带的包管理安装，ubuntu使用apt-get也可以安装</p>
+<p>具体可以参考<a href="https://transmissionbt.com/download/" target="_blank" rel="external">官方下载地址</a></p>
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/1.png" alt="transmission" title="transmission"><br></div>
+
+<p>这条命令只会安装transmission-cli.x86_64</p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/2.png" alt="transmission" title="transmission"><br></div>
+
+<p>最简单的使用方式</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">transmission-cli name.torrent</div></pre></td></tr></table></figure>
+<p>会自动下载到~/Downloads下面，下载完成会自动做种，希望停止的话直接kill掉就好了</p>
+<h2 id="transmission-daemon"><a href="#transmission-daemon" class="headerlink" title="transmission-daemon"></a>transmission-daemon</h2><h3 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h3><p>transmission-daemon是个守护进程，它本身不提供下载的功能，但它可以提供一个对外的web接口，通过它可以RPC启动transmission-common去下载</p>
+<h3 id="安装-1"><a href="#安装-1" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install transmission-daemon</div></pre></td></tr></table></figure>
+<p>同上，common包会被自动安装</p>
+<h3 id="使用-1"><a href="#使用-1" class="headerlink" title="使用"></a>使用</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service transmission-daemon start</div></pre></td></tr></table></figure>
+<p>启动后会开放9091端口为web端口，可以浏览器直接访问来进行控制下载</p>
+<p>值得一说的是CentOS 7之后会逐渐弃用service而改用systemctl，所以会有一个下面重定向的提示</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Redirecting to /bin/systemctl start  transmission-daemon.service</div></pre></td></tr></table></figure>
+<p>配置文件在 /var/lib/transmission/.config/transmission-daemon/settings.json </p>
+<p>外网访问需要配置settings.json，否则将返回拒绝访问。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">"rpc-authentication-required": true, //开启需要密码登陆</div><div class="line">"rpc-bind-address": "0.0.0.0",</div><div class="line">"rpc-enabled": true,</div><div class="line">"rpc-password": "xxxxxx", //登陆密码，设置后重启transmission-daemon，密码会自动进行md5加密</div><div class="line">"rpc-port": 9091,</div><div class="line">"rpc-url": "/transmission/",</div><div class="line">"rpc-username": "chenhaoyuan@live.cn", //登陆用户名</div><div class="line">"rpc-whitelist": "127.0.0.1",  </div><div class="line">"rpc-whitelist-enabled": false, //关闭白名单</div></pre></td></tr></table></figure>
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/3.png" alt="transmission" title="transmission"><br></div>
+
+<div><br>  <img src="/2016/11/14/使用transmission在Linux服务器上下载torrent/4.png" alt="transmission" title="transmission"><br></div>
+
+<p>支持本地上传torrent</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/14/使用transmission在Linux服务器上下载torrent/" class="archive-article-date">
+  	<time datetime="2016-11-13T18:29:03.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
+</a>
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Linux工具/">Linux工具</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/编程/">编程</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-日记" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/11/14/日记/">日记</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>已经到11月14号了，但是鉴于我的生活习惯，现在写13号的日记是很合适的。</p>
+<p>首先，中午起床，叫外卖，然后开始CS：GO，再之后补完丧女，最后守望先锋，下午结束。</p>
+<p>晚上把TRICKSTER从第3话看到第6话，看了一丢丢《人月神话》，然后去XShell官网下载了,腾讯云上启动了了个BT/PT下载的进程，可以远程向服务器下载BT/PT。</p>
+<div><br>  <img src="/2016/11/14/日记/1.png" alt="transmission" title="transmission"><br></div>
+
+<p>就在刚刚，把博客的主题进行了简单的修改，加入了categories，将来图片可能切换到七牛的外链。</p>
+<p>话说我的日记好无聊啊。</p>
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      <a href="/2016/11/14/日记/" class="archive-article-date">
+  	<time datetime="2016-11-13T18:04:14.000Z" itemprop="datePublished"><i class="icon-clock"></i>2016-11-14</time>
+</a>
+      
+      
+	<div class="article-category tagcloud">
+	<i class="icon-price-tags"></i>
+	<a class="article-category-link" href="/categories/日记/">日记</a>
+	</div>
+
+
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2017 陈浩远
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+				<div>
+					<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+          <span id="busuanzi_container_site_pv">本站总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+					<br />
+					<span id="busuanzi_container_page_pv" style="display: inline; padding: 0 103px 0 0;">本页访问量<span id="busuanzi_value_page_pv"></span>次</span>
+				</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: false,
+		animate: true,
+		isHome: true,
+		isPost: false,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js"></script>
+
+
+    
+<div class="tools-col">
+  <ul class="btn-wrap">
+    
+      <li class="chose" data-hook="tools-section-all"><span class="text">全部</span><i class="icon-book"></i></li>
+    
+    
+      <li data-hook="tools-section-tag"><span class="text">标签</span><i class="icon-price-tags"></i></li>
+    
+    
+    
+      <li data-hook="tools-section-me"><span class="text">我</span><i class="icon-smile"></i></li>
+    
+  </ul>
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all chose">
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-tag">
+    			<div class="widget tagcloud" id="js-tagcloud">
+    				<a href="/tags/Linux工具/" style="font-size: 10px;">Linux工具</a>
+    			</div>
+    	</section>
+    
+
+    
+
+    
+    	<section class="tools-section tools-section-me">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">福建大三本/软件工程&lt;br /&gt;大数据工程师(其实就是个实习生&lt;br /&gt;坐标：南京</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
