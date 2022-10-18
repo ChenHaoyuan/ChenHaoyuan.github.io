@@ -1,7 +1,7 @@
 var applyForm = document.getElementById('userName');
 var generateButton = document.getElementById('generate-qrcode');
 var qrcode = new QRCode(document.getElementById("display-qrcode"), {
-    text: '',
+    text: '测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据',
     //width: 128,
     //height: 128,
     colorDark : "#000000",
@@ -14,8 +14,8 @@ qrcode.clear();
 if (generateButton) {
     generateButton.addEventListener('click', function () {
         qrcode.clear();
+
         var qrcodeValueList = document.getElementsByClassName('qrcode-value')
-        
         var result = "";
         for(var qrcodeValue of qrcodeValueList) {
             if(qrcodeValue.value.length == 0){
