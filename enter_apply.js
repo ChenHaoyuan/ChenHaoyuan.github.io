@@ -33,8 +33,15 @@ if (generateButton) {
         console.log(result)
         qrcode.makeCode(result); // make another code.
 
+        var image = document.getElementById("display-qrcode").getElementsByTagName("img")[0].src;
+
+var iframe = "<iframe width='100%' height='100%' src='" + image + "'></iframe>"
+var x = window.open()
+x.document.open()
+x.document.write(iframe)
+x.document.close()
+
   })
 }
-
 
 
