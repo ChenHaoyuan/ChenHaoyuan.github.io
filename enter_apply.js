@@ -20,6 +20,7 @@ if (generateButton) {
         for(var qrcodeValue of qrcodeValueList) {
             if(qrcodeValue.value.length == 0){
                 console.log("value is empty");
+                alert("请填写完整。");
                 return;
             }
 
@@ -35,8 +36,5 @@ if (generateButton) {
   })
 }
 
-document.getElementById('apply-form').onsubmit= function(e){
-    e.preventDefault();
-}
 
 

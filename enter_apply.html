@@ -10,7 +10,7 @@
 <body>
   <h1>晨光入门码生成</h1>
 
-  <form id="apply-form" class="needs-validation">
+  <form id="apply-form" class="needs-validation" novalidate>
     <div class="mb-3">
       <label for="userName" class="form-label">访客姓名</label>
       <input class="form-control qrcode-value" id="userName" required>
@@ -40,7 +40,7 @@
       <input type="date" class="form-control qrcode-value" id="receptionDate" required>
     </div>
     
-    <button type="submit" class="btn btn-primary" id="generate-qrcode">生成二维码</button>
+    <button type="button" class="btn btn-primary" id="generate-qrcode">生成二维码</button>
   </form>
 
   <div id="display-qrcode"></div>
