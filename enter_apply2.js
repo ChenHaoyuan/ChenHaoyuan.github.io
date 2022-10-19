@@ -1,5 +1,25 @@
 var generateButton = document.getElementById('generate-qrcode');
 
+function utf16to8(str) {  
+    var out, i, len, c;  
+    out = "";  
+    len = str.length;  
+    for(i = 0; i < len; i++) {  
+    c = str.charCodeAt(i);  
+    if ((c >= 0x0001) && (c <= 0x007F)) {  
+        out += str.charAt(i);  
+    } else if (c > 0x07FF) {  
+        out += String.fromCharCode(0xE0 | ((c >> 12) & 0x0F));  
+        out += String.fromCharCode(0x80 | ((c >>  6) & 0x3F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    } else {  
+        out += String.fromCharCode(0xC0 | ((c >>  6) & 0x1F));  
+        out += String.fromCharCode(0x80 | ((c >>  0) & 0x3F));  
+    }  
+    }  
+    return out;  
+} 
+
 if (generateButton) {
     generateButton.addEventListener('click', function () {
         var qrcodeValueList = document.getElementsByClassName('qrcode-value')
@@ -17,11 +37,15 @@ if (generateButton) {
                 result = result + "$$" + qrcodeValue.value;
             }
         }
-        console.log(result)
+        console.log(result);
+        var utf8Result = utf16to8(result);
+        console.log(utf8Result);
 
         var qr = new QRious({
             element: document.getElementById('qrcode_canvas'),
-            value: result
+            size: 400,
+            level: "Q",
+            value: utf8Result
         });
         imageUrl = qr.toDataURL();
 
