@@ -43,7 +43,7 @@ if (generateButton) {
 
         var qr = new QRious({
             element: document.getElementById('qrcode_canvas'),
-            size: 400,
+            size: 300,
             level: "Q",
             value: utf8Result
         });
