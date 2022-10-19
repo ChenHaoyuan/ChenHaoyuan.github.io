@@ -1,4 +1,3 @@
-var applyForm = document.getElementById('userName');
 var generateButton = document.getElementById('generate-qrcode');
 var qrcode = new QRCode(document.getElementById("display-qrcode"), {
     text: '测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据测试数据',
