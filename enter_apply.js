@@ -35,11 +35,10 @@ if (generateButton) {
 
         var image = document.getElementById("display-qrcode").getElementsByTagName("img")[0].src;
 
-var iframe = "<iframe width='100%' height='100%' src='" + image + "'></iframe>"
-var x = window.open()
-x.document.open()
-x.document.write(iframe)
-x.document.close()
+        var a = document.createElement("a"); //Create <a>
+        a.href = image; //Image Base64 Goes here
+        a.download = "Image.png"; //File name Here
+        a.click(); //Downloaded file
 
   })
 }
