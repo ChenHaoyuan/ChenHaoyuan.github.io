@@ -52,6 +52,8 @@ if (generateButton) {
         var imageElement = document.getElementById('image_display');
         imageElement.src = imageUrl;
 
+        var noteP = document.getElementById('note-p');
+        
     })
 }
 

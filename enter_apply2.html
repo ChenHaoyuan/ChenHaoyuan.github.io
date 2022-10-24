@@ -8,8 +8,8 @@
   <title>晨光入门码生成</title>
 </head>
 <body>
-  <h1>晨光入门码生成</h1>
-
+<div class="container">
+    <h1>晨光入门码生成</h1>
   <form id="apply-form" class="needs-validation" novalidate>
     <div class="mb-3">
       <label for="userName" class="form-label">访客姓名</label>
@@ -47,11 +47,14 @@
   </form>
 
   <canvas id="qrcode_canvas" hidden></canvas>
-  <div>
+  <div class='container d-flex align-items-center justify-content-center'>
     <img id="image_display" src="">
+    <p id="note-p" hidden>长按保存二维码</p>
   </div>
 
-  <script src="enter_apply2.js"></script>
+  
 
+  <script src="enter_apply2.js"></script>
+</div>
 </body>
 </html>
