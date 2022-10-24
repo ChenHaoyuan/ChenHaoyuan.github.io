@@ -53,7 +53,7 @@ if (generateButton) {
         imageElement.src = imageUrl;
 
         var noteP = document.getElementById('note-p');
-        
+        noteP.removeAttribute("hidden");
     })
 }
 
