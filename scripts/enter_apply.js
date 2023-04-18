@@ -7,7 +7,7 @@ if (generateButton) {
         for (var qrcodeValue of qrcodeValueList) {
             if (qrcodeValue.value.length == 0 && qrcodeValue.required) {
                 console.log("value is empty:" + qrcodeValue.id);
-                alert("请填写完整。");
+                alert("请填写必填项。");
                 return;
             }
             if ("jobNo" === qrcodeValue.id) {
@@ -20,7 +20,12 @@ if (generateButton) {
                 }
             }
             if (qrcodeValue.value.length > 0) {
-                result[qrcodeValue.id] = qrcodeValue.value;
+                if ("startTime" === qrcodeValue.id || "endTime" === qrcodeValue.id) {
+                    var timeResult = moment(qrcodeValue.value,'YYYY-MM-DDTHH:mm').format('yyyyMMDDHHmm');
+                    result[qrcodeValue.id] = timeResult;
+                } else {
+                    result[qrcodeValue.id] = qrcodeValue.value;
+                }
             }
             document.cookie = qrcodeValue.id + "=" + qrcodeValue.value;
         }
