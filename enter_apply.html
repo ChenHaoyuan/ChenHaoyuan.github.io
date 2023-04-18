@@ -6,6 +6,7 @@
   <script src="scripts/bootstrap.bundle.min.js" rossorigin="anonymous"></script>
   <script type="text/javascript" src="scripts/crypto-js/crypto-js.js"></script>
   <script src="scripts/qrious.min.js"></script>
+  <script src="scripts/moment.js"></script>
   <title>晨光入门码生成</title>
 </head>
 <body>
@@ -13,7 +14,7 @@
     <h1>晨光入门码生成</h1>
   <form id="apply-form" class="needs-validation" novalidate>
     <div class="mb-3">
-      <label for="visitorName" class="form-label">访客名称</label>
+      <label for="visitorName" class="form-label">访客名称（必填）</label>
       <input class="form-control qrcode-value" id="visitorName" required>
     </div>
     <div class="mb-3">
@@ -23,7 +24,6 @@
     <div class="mb-3">
       <label for="visitorIdCardType" class="form-label">访客证件类型</label>
       <select class="form-select qrcode-value" id="visitorIdCardType">
-        <option selected>选择证件类型</option>
         <option value="111">身份证</option>
         <option value="335">驾驶证</option>
         <option value="131">工作证</option>
@@ -47,23 +47,23 @@
       <input class="form-control qrcode-value" id="carNumber">
     </div>
     <div class="mb-3">
-      <label for="jobNo" class="form-label">被访人工号</label>
+      <label for="jobNo" class="form-label">被访人工号（工号填写后则不需要填写被访人手机号和姓名，如果不填写工号，则被访人手机号和姓名必填）</label>
       <input class="form-control qrcode-value" id="jobNo">
     </div>
     <div class="mb-3">
       <label for="beVisitorPhone" class="form-label">被访人手机号</label>
-      <input class="form-control qrcode-value" id="beVisitorPhone">
+      <input class="form-control qrcode-value" id="beVisitorPhone" required>
     </div>
     <div class="mb-3">
       <label for="beVisitorName" class="form-label">被访人姓名</label>
-      <input class="form-control qrcode-value" id="beVisitorName">
+      <input class="form-control qrcode-value" id="beVisitorName" required>
     </div>
     <div class="mb-3">
-      <label for="startTime" class="form-label">预计来访时间</label>
+      <label for="startTime" class="form-label">预计来访时间（必填）</label>
       <input type="datetime-local" class="form-control qrcode-value" id="startTime" required>
     </div>
     <div class="mb-3">
-      <label for="endTime" class="form-label">预计离开时间</label>
+      <label for="endTime" class="form-label">预计离开时间（必填）</label>
       <input type="datetime-local" class="form-control qrcode-value" id="endTime" required>
     </div>
     <button type="button" class="btn btn-primary" id="generate-qrcode">生成二维码</button>
@@ -77,7 +77,7 @@
 
   
 
-  <script src="scripts/enter_apply2.js"></script>
+  <script src="scripts/enter_apply.js"></script>
 </div>
 </body>
 </html>

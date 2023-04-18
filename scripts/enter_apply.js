@@ -5,15 +5,26 @@ if (generateButton) {
         var qrcodeValueList = document.getElementsByClassName('qrcode-value')
         var result = {};
         for (var qrcodeValue of qrcodeValueList) {
-            if (qrcodeValue.value.length == 0) {
-                console.log("value is empty");
+            if (qrcodeValue.value.length == 0 && qrcodeValue.required) {
+                console.log("value is empty:" + qrcodeValue.id);
                 alert("请填写完整。");
                 return;
             }
-            result[qrcodeValue.id] = qrcodeValue.value;
+            if ("jobNo" === qrcodeValue.id) {
+                if (qrcodeValue.value.length > 0) {
+                    document.getElementById("beVisitorPhone").required = false;
+                    document.getElementById("beVisitorName").required = false;
+                } else {
+                    document.getElementById("beVisitorPhone").required = true;
+                    document.getElementById("beVisitorName").required = true;
+                }
+            }
+            if (qrcodeValue.value.length > 0) {
+                result[qrcodeValue.id] = qrcodeValue.value;
+            }
             document.cookie = qrcodeValue.id + "=" + qrcodeValue.value;
         }
-        result["date"] = new Date();
+        result["date"] = moment().format('YYMMDDHHmmss.SSS');
         result["validTime"] = "m5";
         result["codeId"] = genNonDuplicateID();
         console.log(result);
@@ -73,21 +84,19 @@ function utf16to8(str) {
     return out;
 }
 
-function getCookie(cname)
-{
-  var name = cname + "=";
-  var ca = document.cookie.split(';');
-  for(var i=0; i<ca.length; i++) 
-  {
-    var c = ca[i].trim();
-    if (c.indexOf(name)==0) return c.substring(name.length,c.length);
-  }
-  return "";
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i].trim();
+        if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
+    }
+    return "";
 }
 
 /**
  * 生成一个用不重复的ID
  */
- function genNonDuplicateID(randomLength){
-    return Number(Math.random().toString().substr(2,4) + Date.now()).toString(16)
-  }
+function genNonDuplicateID(randomLength) {
+    return Number(Math.random().toString().substr(2, 4) + Date.now()).toString(16)
+}
