@@ -21,13 +21,13 @@ if (generateButton) {
             }
             if (qrcodeValue.value.length > 0) {
                 if ("startTime" === qrcodeValue.id || "endTime" === qrcodeValue.id) {
-                    var timeResult = moment(qrcodeValue.value,'YYYY-MM-DDTHH:mm').format('yyyyMMDDHHmm');
+                    var timeResult = moment(qrcodeValue.value, 'YYYY-MM-DDTHH:mm').format('yyyyMMDDHHmm');
                     result[qrcodeValue.id] = timeResult;
                 } else {
                     result[qrcodeValue.id] = qrcodeValue.value;
                 }
             }
-            document.cookie = qrcodeValue.id + "=" + qrcodeValue.value;
+            setCookie(qrcodeValue.id, qrcodeValue.value, 30);
         }
         result["date"] = moment().format('YYMMDDHHmmss.SSS');
         result["validTime"] = "m5";
@@ -97,6 +97,13 @@ function getCookie(cname) {
         if (c.indexOf(name) == 0) return c.substring(name.length, c.length);
     }
     return "";
+}
+
+function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires=" + d.toGMTString();
+    document.cookie = cname + "=" + cvalue + "; " + expires;
 }
 
 /**
