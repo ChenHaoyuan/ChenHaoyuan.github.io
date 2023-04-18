@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "crypto-js": "^4.1.1"
+  },
+  "scripts": {
+    "dev": "http-server"
+  }
+}
