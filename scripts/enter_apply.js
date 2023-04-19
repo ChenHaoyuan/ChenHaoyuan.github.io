@@ -21,7 +21,7 @@ if (generateButton) {
             }
             if (qrcodeValue.value.length > 0) {
                 if ("startTime" === qrcodeValue.id || "endTime" === qrcodeValue.id) {
-                    var timeResult = moment(qrcodeValue.value, 'YYYY-MM-DDTHH:mm').format('yyyyMMDDHHmm');
+                    var timeResult = moment(qrcodeValue.value, 'YYYY-MM-DDTHH:mm').format('yyyyMMDDHHmmss');
                     result[qrcodeValue.id] = timeResult;
                 } else {
                     result[qrcodeValue.id] = qrcodeValue.value;
