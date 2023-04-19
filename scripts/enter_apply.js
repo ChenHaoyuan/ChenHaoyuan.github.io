@@ -58,8 +58,8 @@ if (generateButton) {
     }
 }
 
-var key = CryptoJS.enc.Utf8.parse("1234123412ABCDEF");  //十六位十六进制数作为密钥
-var iv = CryptoJS.enc.Utf8.parse('ABCDEF4321432143');   //十六位十六进制数作为密钥偏移量
+var key = CryptoJS.enc.Utf8.parse("WwXxYyZz1234!@#$");  //十六位十六进制数作为密钥
+var iv = CryptoJS.enc.Utf8.parse('AaBbCcDd1234!@#$');   //十六位十六进制数作为密钥偏移量
 
 function Encrypt(word) {
     let srcs = CryptoJS.enc.Utf8.parse(word);
