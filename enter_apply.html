@@ -1,4 +1,5 @@
 <html lang="zh-CN">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,75 +10,77 @@
   <script src="scripts/moment.js"></script>
   <title>晨光入门码生成</title>
 </head>
+
 <body>
-<div class="container">
+  <div class="container">
     <h1>晨光入门码生成</h1>
-  <form id="apply-form" class="needs-validation" novalidate>
-    <div class="mb-3">
-      <label for="visitorName" class="form-label">访客名称（必填）</label>
-      <input class="form-control qrcode-value" id="visitorName" required>
-    </div>
-    <div class="mb-3">
-      <label for="visitorIdCard" class="form-label">访客证件号码</label>
-      <input class="form-control qrcode-value" id="visitorIdCard">
-    </div>
-    <div class="mb-3">
-      <label for="visitorIdCardType" class="form-label">访客证件类型</label>
-      <select class="form-select qrcode-value" id="visitorIdCardType">
-        <option value="111">身份证</option>
-        <option value="335">驾驶证</option>
-        <option value="131">工作证</option>
-        <option value="990">其他证件</option>
-      </select>
-    </div>
-    <div class="mb-3">
-      <label for="visitorPhone" class="form-label">访客手机号</label>
-      <input class="form-control qrcode-value" id="visitorPhone">
-    </div>
-    <div class="mb-3">
-      <label for="workUnit" class="form-label">访客来访单位</label>
-      <input class="form-control qrcode-value" id="workUnit">
-    </div>
-    <div class="mb-3">
-      <label for="visitPurpose" class="form-label">来访事由</label>
-      <input class="form-control qrcode-value" id="visitPurpose">
-    </div>
-    <div class="mb-3">
-      <label for="carNumber" class="form-label">车牌号</label>
-      <input class="form-control qrcode-value" id="carNumber">
-    </div>
-    <div class="mb-3">
-      <label for="jobNo" class="form-label">被访人工号（工号填写后则不需要填写被访人手机号和姓名，如果不填写工号，则被访人手机号和姓名必填）</label>
-      <input class="form-control qrcode-value" id="jobNo">
-    </div>
-    <div class="mb-3">
-      <label for="beVisitorPhone" class="form-label">被访人手机号</label>
-      <input class="form-control qrcode-value" id="beVisitorPhone" required>
-    </div>
-    <div class="mb-3">
-      <label for="beVisitorName" class="form-label">被访人姓名</label>
-      <input class="form-control qrcode-value" id="beVisitorName" required>
-    </div>
-    <div class="mb-3">
-      <label for="startTime" class="form-label">预计来访时间（必填）</label>
-      <input type="datetime-local" class="form-control qrcode-value" id="startTime" required>
-    </div>
-    <div class="mb-3">
-      <label for="endTime" class="form-label">预计离开时间（必填）</label>
-      <input type="datetime-local" class="form-control qrcode-value" id="endTime" required>
-    </div>
-    <button type="button" class="btn btn-primary" id="generate-qrcode">生成二维码</button>
-  </form>
+    <form id="apply-form" class="needs-validation" novalidate>
+      <div class="mb-3">
+        <label for="visitorName" class="form-label">访客名称（必填）</label>
+        <input class="form-control qrcode-value" id="visitorName" required>
+      </div>
+      <div class="mb-3">
+        <label for="visitorIdCard" class="form-label">访客证件号码</label>
+        <input class="form-control qrcode-value" id="visitorIdCard">
+      </div>
+      <div class="mb-3">
+        <label for="visitorIdCardType" class="form-label">访客证件类型</label>
+        <select class="form-select qrcode-value" id="visitorIdCardType">
+          <option value="111">身份证</option>
+          <option value="335">驾驶证</option>
+          <option value="131">工作证</option>
+          <option value="990">其他证件</option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label for="visitorPhone" class="form-label">访客手机号</label>
+        <input class="form-control qrcode-value" id="visitorPhone">
+      </div>
+      <div class="mb-3">
+        <label for="workUnit" class="form-label">访客来访单位</label>
+        <input class="form-control qrcode-value" id="workUnit">
+      </div>
+      <div class="mb-3">
+        <label for="visitPurpose" class="form-label">来访事由</label>
+        <input class="form-control qrcode-value" id="visitPurpose">
+      </div>
+      <div class="mb-3">
+        <label for="carNumber" class="form-label">车牌号</label>
+        <input class="form-control qrcode-value" id="carNumber">
+      </div>
+      <div class="mb-3">
+        <label for="jobNo" class="form-label">被访人工号（工号填写后则不需要填写被访人手机号和姓名，如果不填写工号，则被访人手机号和姓名必填）</label>
+        <input class="form-control qrcode-value" id="jobNo">
+      </div>
+      <div class="mb-3">
+        <label for="beVisitorPhone" class="form-label">被访人手机号</label>
+        <input class="form-control qrcode-value" id="beVisitorPhone" required>
+      </div>
+      <div class="mb-3">
+        <label for="beVisitorName" class="form-label">被访人姓名</label>
+        <input class="form-control qrcode-value" id="beVisitorName" required>
+      </div>
+      <div class="mb-3">
+        <label for="startTime" class="form-label">预计来访时间（必填）</label>
+        <input type="datetime-local" class="form-control qrcode-value" id="startTime" required>
+      </div>
+      <div class="mb-3">
+        <label for="endTime" class="form-label">预计离开时间（必填）</label>
+        <input type="datetime-local" class="form-control qrcode-value" id="endTime" required>
+      </div>
+      <button type="button" class="btn btn-primary" id="generate-qrcode">生成二维码</button>
+    </form>
 
-  <canvas id="qrcode_canvas" hidden></canvas>
-  <div class='container d-flex align-items-center justify-content-center'>
-    <img id="image_display" src="">
-    <p id="note-p" hidden>长按二维码保存图片</p>
+    <canvas id="qrcode_canvas" hidden></canvas>
+    <div class='container d-flex align-items-center justify-content-center'>
+      <img id="image_display" style="margin: auto;" src="">
+    </div>
+    <div class='container d-flex align-items-center justify-content-center'>
+      <p id="note-p" style="margin: auto;" hidden>长按二维码保存图片</p>
+    </div>
+
+    <script src="scripts/enter_apply.js"></script>
   </div>
-
-  
-
-  <script src="scripts/enter_apply.js"></script>
-</div>
 </body>
+
 </html>
